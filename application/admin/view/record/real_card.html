@@ -1,0 +1,97 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>实卡管理</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">会员卡管理</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-profile-tab" href="{:url('Record/buildCard')}" role="tab" aria-controls="pills-profile" aria-selected="false">会员卡生成</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">库存统计</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-type-tab" data-toggle="pill" href="#pills-type" role="tab" aria-controls="pills-type" aria-selected="false">类型管理</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                                <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                                    <div class="form-group">
+                                        <label for="cardnum">
+                                            卡号:&nbsp;
+                                        </label>
+                                        <input type="text" name="cardnum" class="form-control">
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <div class="form-group">
+                                        <label for="f_cha">
+                                            经销商:&nbsp;
+                                        </label>
+                                        <input type="text" name="f_cha" class="form-control">
+                                    </div>&nbsp;&nbsp;
+                                    <div class="form-group">
+                                        <label for="date">生成日期:&nbsp;</label>
+                                        <input type="date" name="t1" class="form-control">&nbsp;-&nbsp;
+                                        <input type="date" name="t2" class="form-control" id="t2">
+                                    </div>
+                                    &nbsp;&nbsp;
+                                    <button type="button" class="btn btn-primary" id="sub">查询</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <h3>会员卡生成</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste nobis, fugit pariatur minima! Dolorum modi pariatur aperiam quas odio nulla, illo necessitatibus dolor a.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <h3>库存统计</h3>
+                                <p>
+                                    候补. Iste nobis, fugit pariatur minima! Dolorum modi pariatur aperiam quas odio nulla, illo necessitatibus dolor a.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-type" role="tabpanel" aria-labelledby="pills-type-tab">
+                                <h3>类型管理</h3>
+                                <p>
+                                    类型管理Lo
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+<div class="content" style="margin-top: -50px;">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>&nbsp;&nbsp;
+
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+{js href="/static/js/admin/record/realCard.js" /}

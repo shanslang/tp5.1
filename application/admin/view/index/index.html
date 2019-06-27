@@ -1,0 +1,118 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>用户查询</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <form class="form-inline"  role="form" style="padding: 8px;" method="post" id="queryForm" action="/index.php/admin/index/userInfo">
+                <div class="form-group">
+                    <select class="form-control" id="select" name="sel">
+                        <option value ="1">游戏ID</option>
+                        <option value ="2">帐号</option> 
+                        <option value ="3">昵称</option> 
+                        <option value ="4">UserID</option> 
+                        <option value ="5">UnionId</option>
+                    </select>
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="请查询信息" name="info" required="required">
+                </div>&nbsp;&nbsp;
+                <div class="form-group">
+                    <label class="radio-inline">
+                        <input type="radio" name="likes" value="0" checked> &nbsp;&nbsp;非模糊&nbsp;&nbsp;
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="likes" value="1"> &nbsp;&nbsp;模糊&nbsp;&nbsp;
+                    </label>
+                </div>
+                <button  type="submit" class="btn btn-primary">查询</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="content" >
+    <div class="animated fadeIn">
+        <div class="row" id="hiddenid" style="display: none;">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <div id="toolbar" style="float: left;">
+                            <button type="button" class="btn btn-success" id="setCheat">
+                                <i class="fa fa-bug"></i> 设置虫子
+                            </button>
+                            <button type="button" class="btn btn-info" id="fhao">封号</button>
+                            <button type="button" class="btn btn-info" id="jiefen">解封</button>
+                        </div>
+
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="largeModalLabel">游戏所得</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="gamescore"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">设置虫子</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="txt_departmentname">等级</label>
+                    <select class="form-control" id="grade">
+                        <option value="1">一级</option>
+                        <option value="2">二级</option>
+                        <option value="3">三级</option>
+                        <option value="0">非虫子</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{js href="/static/js/admin/index/index.js"}

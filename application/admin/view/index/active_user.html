@@ -1,0 +1,109 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>活跃用户</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+            <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="isvip">是否VIP：</label>
+                    <select class="form-control" name="isvip">
+                        <option value="3">否</option>
+                        <option value="2">是</option>
+                        <option value="1">全部</option>
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="gid">GameID：</label>
+                    <input type="number" class="form-control" name="gid">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="channel">渠道号：</label>
+                    <input type="number" class="form-control" name="channel" style="width: 100px;">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="yun">运维VIP：</label>
+                    <input type="number" class="form-control" name="yun" style="width: 80px;">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="inputfile">登录日期：</label>
+                    <div class='input-group date'>
+                        <input type='date' class="form-control" name="startTime" id="t1" />
+                        <input type='date' class="form-control" name="endTime" id="t2" />
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <div class="checkbox">
+                    <label>总数：<span id="z_recharge"></span></label>
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <div id="toolbar" style="float: left;">
+                            <button type="button" class="btn btn-info" id="kickPeople"><i class="fa fa-edit"></i> 修改运维VIP</button>
+                        </div>
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改运维VIP</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="txt_departmentname">运维VIP（0~127）:</label>
+                    <input type="number" class="form-control" name="txt_departmentname" min="0" max="127" id="yunid">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{js href="/static/js/admin/index/activeUser.js" /}

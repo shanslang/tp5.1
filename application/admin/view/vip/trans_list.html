@@ -1,0 +1,83 @@
+<div class="content">
+	<div class="card">
+		<div class="row m-0">
+	        <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+	        	<div class="form-group">
+	                <label for="inputfile">转账日期：</label>
+	                <div class='input-group date'>
+	                    <input type='date' class="form-control" name="startTime" id="t1" />
+	                    <input type='date' class="form-control" name="endTime" id="t2" />
+	                </div>
+	            </div>
+	            &nbsp;&nbsp;
+	            <div class="form-group">
+	                <label for="gid">GameID：</label>
+	                <input type="number" class="form-control" name="gid" style="width: 140px;">
+	            </div>
+	            &nbsp;&nbsp;
+	            <div class="form-group">
+	                <label for="channel">渠道号：</label>
+	                <input type="number" class="form-control" name="channel" style="width: 100px;">
+	            </div>
+	            &nbsp;&nbsp;           
+	            <div class="form-group">
+	                <label for="tranmin">转账金额：</label>
+	                <input type="number" class="form-control" name="tranmin" min="0"> - 
+	                <input type="number" class="form-control" name="tranmax" min="0">
+	            </div>
+	            &nbsp;&nbsp;
+	            <button type="button" class="btn btn-primary" id="sub">查询</button>
+	        </form>
+    	</div>
+	</div>
+    <div class="row">
+        <div class="col-lg-2">
+            <section class="card">
+                <div class="card-body text-secondary">
+                	总转出：<span id="zc_sum"></span>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-2">
+            <section class="card">
+                <div class="card-body text-secondary">
+                	总转入:<span id="zr_sum"></span>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-2">
+            <section class="card">
+                <div class="card-body text-secondary">总税收:<span id="z_ss"> </span></div>
+            </section>
+        </div>
+    </div>
+
+    <div class="row">
+    	<div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>转账查询</h4>
+                </div>
+                <div class="card-body">
+                    <div class="custom-tab">
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link" id="custom-nav-home-tab" data-toggle="tab" href="#custom-nav-home" role="tab" aria-controls="custom-nav-home" aria-selected="false">所有</a>&nbsp;
+                                <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab" href="#custom-nav-profile" role="tab" aria-controls="custom-nav-profile" aria-selected="false">VIP所有转出</a>&nbsp;
+                                <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab" href="#custom-nav-contact" role="tab" aria-controls="custom-nav-contact" aria-selected="false">VIP转入到VIP</a>&nbsp;
+                                <a class="nav-item nav-link" id="custom-nav-vzcvip-tab" data-toggle="tab" href="#custom-nav-vzcvip" role="tab" aria-controls="custom-nav-vzcvip" aria-selected="false">VIP转出到VIP</a>&nbsp;
+                                <a class="nav-item nav-link" id="custom-nav-ptzrvip-tab" data-toggle="tab" href="#custom-nav-ptzrvip" role="tab" aria-controls="custom-nav-ptzrvip" aria-selected="false">普通转入到VIP</a>&nbsp;
+                                <a class="nav-item nav-link active" id="custom-nav-vipzcpt-tab" data-toggle="tab" href="#custom-nav-vipzcpt" role="tab" aria-controls="custom-nav-vipzcpt" aria-selected="true">VIP转出到普通玩家</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                        	<table id="tabless"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{js href="/static/js/admin/vip/transList.js" /}

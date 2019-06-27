@@ -1,0 +1,200 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>限制IP地址</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+            <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                
+                <div class="form-group">
+                    <label for="IP">IP:</label>
+                    <input type="text" class="form-control" name="IP">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="isvague">状态：</label>
+                    <select class="form-control" name="isvague">
+                        <option value="0">非模糊</option>
+                        <option value="1">模糊</option>  
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+               
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-info" id="iptp1">IP地址注册数top100</button> 
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <div id="toolbar" style="float: left;">
+                            <button type="button" class="btn btn-info" id="newadd"><i class="fa fa-edit"></i> 新增</button>&nbsp;|&nbsp;
+                            <button type="button" class="btn btn-info" id="kickPeople"><i class="fa fa-edit"></i> 删除</button>
+                        </div>
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">更新IP</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"  role="form" style="padding: 8px;" method="post" id="editForm">
+                    <div class="row form-group">
+                        <div class="col col-md-2"><label for="disabled-input" class=" form-control-label">限制IP地址:</label></div>
+                        <div class="col-12 col-md-10"><input type="text" name="ipss" disabled="" id="lip" class="form-control"></div>
+                        <input type="hidden" name="ips" id="lip2" class="form-control">
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="xx">选&nbsp;项&nbsp;：&nbsp;</label>
+                        <div class="form-check-inline form-check">
+                            <label for="inline-radio1" class="form-check-label">
+                                <input type="checkbox" id="inline-radio1" name="limitip" value="1" class="form-check-input">限制登录
+                            </label>&nbsp;&nbsp;
+                            <label for="inline-radio2" class="form-check-label">
+                                <input type="checkbox" id="inline-radio2" name="limitip" value="2" class="form-check-input">限制注册
+                            </label>&nbsp;&nbsp;
+                            <label for="inline-radio3" class="form-check-label">
+                                <input type="checkbox" id="inline-radio3" name="limitip" value="3" class="form-check-input">限制分数
+                            </label>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="time">失效时间:</label>
+                        <div class="form-check-inline">
+                            <input type="date" class="form-control" name="time" id="OverDate">
+                        </div>
+                        <span style="color: red;">失效时间不填写，则默认为永久限制</span>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="remarks">备&nbsp;&nbsp;注&nbsp;&nbsp;:&nbsp;</label>
+                        <div class="form-check-inline">
+                            <input type="text" class="form-control" name="remarks">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="editip" data-dismiss="modal">修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mediumModal2" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel2">添加限制IP</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"  role="form" style="padding: 8px;" method="post" id="addForm">
+                    <div class="row form-group">
+                        <div class="col col-md-2"><label for="disabled-input" class=" form-control-label">限制IP地址:</label></div>
+                        <div class="col-12 col-md-10"><input type="text" name="ips2" class="form-control"></div>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="xx">选&nbsp;项&nbsp;：&nbsp;</label>
+                        <div class="form-check-inline form-check">
+                            <label for="limitip2" class="form-check-label">
+                                <input type="checkbox" name="limitip2" value="1" class="form-check-input">限制登录
+                            </label>&nbsp;&nbsp;
+                            <label for="limitip2" class="form-check-label">
+                                <input type="checkbox" name="limitip2" value="2" class="form-check-input">限制注册
+                            </label>&nbsp;&nbsp;
+                            <label for="limitip2" class="form-check-label">
+                                <input type="checkbox" name="limitip2" value="3" class="form-check-input">限制分数
+                            </label>
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="time">失效时间:</label>
+                        <div class="form-check-inline">
+                            <input type="date" class="form-control" name="time2" >
+                        </div>
+                        <span style="color: red;">失效时间不填写，则默认为永久限制</span>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div class="form-group">
+                        <label for="remarks">备&nbsp;&nbsp;注&nbsp;&nbsp;:&nbsp;</label>
+                        <div class="form-check-inline">
+                            <input type="text" class="form-control" name="remarks2">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="addip" data-dismiss="modal">新增</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mediumModal33" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel33" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel33">IP地址注册数</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="toolbar" style="float: left;">
+                    <button type="button" class="btn btn-info" id="foreverip"> 永久限制登录注册</button>
+                </div>
+                <table id="table3"></table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{js href="/static/js/admin/user/limitIP.js" /}

@@ -1,0 +1,28 @@
+{__NOLAYOUT__}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hhhhh</title>
+</head>
+<body>
+	{$kk}模板<br/>
+	{$hhh|default="这家伙很懒"}<br/>
+
+	使用MD5加密：{$kk|md5}<br/>
+	{$nums|number_format}<br/>
+	{$nums|format='%02d'}<br/>
+
+	模板中输出系统变量：<br/>
+	PHP版本：{$Think.const.PHP_VERSION}<br/>
+	获取本机操作系统：{$Think.const.PHP_OS}<br/>
+
+	{$Think.get.name|default="名称为空"}<br/>
+	{$Think.server.script_name} {// tp5/public/index.php} <br/> 
+	{$Think.config.default_ajax_return}  {// 输出app的配置信息} <br/>
+	{$Think.config.database.hostname}	{// 输出database的配置信息} <br/>
+
+	{// 访问http://localhost:8080/tp5/public/index.php/index/ConnSql/hasOneModel/name/hh，有请求参数name}
+	{$Request.param.name} <br/>
+	<div>{:captcha_img()}</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+  <div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>虫子用户&nbsp;<button type="button" class="btn btn-link" onclick="window.location.href='/index.php/admin/record/wornSetrecord';"><i class="fa fa-link"></i>&nbsp;虫子设定记录表</button>&nbsp;&nbsp;
+                            <button type="button" class="btn btn-link" onclick="window.location.href='/index.php/admin/record/wornSet';"><i class="fa fa-link"></i>&nbsp;虫子胜率设置</button>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="card-header">
+        <strong>虫子设置</strong> 
+    </div>
+    <div class="card-body card-block">
+        <form action="#" method="post" class="form-inline" id="f_setWorn">
+            <div class="form-group"><label for="gid" class="pr-1  form-control-label">GameID</label><input type="number" placeholder="" required="" class="form-control" name="gid"></div>
+            <div class="form-group">
+              			<select name="CheatLevel" class="form-control">
+                    		<option value="1">一级</option>
+                    		<option value="2">二级</option>
+                            <option value="3">三级</option>
+                    	</select>
+            </div>&nbsp;&nbsp;
+            <div class="form-group">
+          		<div class="form-check-inline form-check">
+                    <label for="xz" class="form-check-label ">
+                        <input type="checkbox"  name="xz" value="1" class="form-check-input">同IP
+                    </label>&nbsp;&nbsp;
+                    <label for="inline-checkbox2" class="form-check-label ">
+                        <input type="checkbox"  name="xz" value="2" class="form-check-input">同机器码
+                    </label>&nbsp;&nbsp;
+                    <label for="inline-checkbox3" class="form-check-label ">
+                        <input type="checkbox" name="xz" value="3" class="form-check-input">同手机号
+                    </label>&nbsp;&nbsp;
+                  <label for="glpc" class="form-check-label ">
+                        <input type="checkbox"  name="glpc" value="5" class="form-check-input">关联模拟器
+                    </label>&nbsp;&nbsp;
+                </div>
+            </div>
+            <div class="form-group"><button type="button" class="btn btn-primary btn-sm" id="sub_setW"><i class="fa fa-dot-circle-o"></i> 设置</button></div>
+        </form>
+    </div>
+    
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+           <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="gid">&nbsp;GameID:&nbsp;</label>
+                    <input type="number" name="gid" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="CheatLevel">
+                    	<select name="CheatLevel" class="form-control">
+                          	<option value="0">全部</option>
+                    		<option value="1">一级</option>
+                    		<option value="2">二级</option>
+                            <option value="3">三级</option>
+                    	</select>
+                    </label>
+                    
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                      	<div id="toolbar" style="float: left;">
+                            <button type="button" class="btn btn-success" id="setCheat">
+                                <i class="fa fa-bug"></i> 设置虫子
+                            </button>
+                        </div>
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">设置虫子</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="txt_departmentname">等级</label>
+                    <select class="form-control" id="grade">
+                        <option value="1">一级</option>
+                        <option value="2">二级</option>
+                        <option value="3">三级</option>
+                        <option value="0">非虫子</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{js href="/static/js/admin/record/worn.js" /}

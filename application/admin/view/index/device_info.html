@@ -1,0 +1,146 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>设备详情</h1>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-md-12">
+                <form action="#" method="post" class="form-horizontal">
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="1" name="ckall" checked="checked"></div>
+                        <div class="col col-md-4">计算机名：</div>
+                        <div class="col col-md-6" id="device1"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="2" name="ckall" checked="checked"></div>
+                        <div class="col col-md-4">机器码：</div>
+                        <div class="col col-md-6" id="device2"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="3" name="ckall" checked="checked"></div>
+                        <div class="col col-md-4">图形设备ID：</div>
+                        <div class="col col-md-6" id="device3"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="4" name="ckall"></div>
+                        <div class="col col-md-4">图形设备名称：</div>
+                        <div class="col col-md-6" id="device4"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="5" name="ckall"></div>
+                        <div class="col col-md-4">处理器类型：</div>
+                        <div class="col col-md-6" id="device5"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="6" name="ckall"></div>
+                        <div class="col col-md-4">系统内存大小：</div>
+                        <div class="col col-md-6" id="device6"></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"><input type="checkbox" value="7" name="ckall"></div>
+                        <div class="col col-md-4">操作系统：</div>
+                        <div class="col col-md-3" id="device7"></div>
+                        <div class="col col-md-3">设备：<span id="device8"></span></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-2" style="text-align: center;"></div>
+                        <div class="col col-md-1">
+                            <select class="form-control" name="cardType" id="grade">
+                                <option value="1">和</option>
+                                <option value="2">或</option>
+                            </select>
+                        </div>
+                        <div class="col col-md-7"><button type="button" class="btn btn-primary" id="sub">查询</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-success" id="setCheat">
+                                <i class="fa fa-bug"></i> 设置虫子
+                        </button>
+                        <button type="button" class="btn btn-info" id="fhao">封号</button>
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="largeModalLabel">游戏所得</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="gamescore"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">设置虫子</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="txt_departmentname">等级</label>
+                    <select class="form-control" id="grade2">
+                        <option value="1">一级</option>
+                        <option value="2">二级</option>
+                        <option value="3">三级</option>
+                        <option value="0">非虫子</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{js href="/static/js/admin/index/deviceInfo.js" /}

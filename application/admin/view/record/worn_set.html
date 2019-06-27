@@ -1,0 +1,71 @@
+  <div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>虫子胜率设置&nbsp;<button type="button" class="btn btn-link" onclick="window.location.href='/index.php/admin/record/worn';"><i class="fa fa-link"></i>&nbsp;虫子用户</button></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="card-body card-block">
+                <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+                  	<div class="row form-group">
+                        <div class="col col-md-3"><label for="selectLg" class=" form-control-label">虫子等级</label></div>
+                        <div class="col-12 col-md-9">
+                            <select name="selectLg" id="selectLg" class="form-control-lg form-control">
+                                <option value="1">一级</option>
+                                <option value="2">二级</option>
+                                <option value="3">三级</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label class="form-control-label">胜率</label></div>
+                        <div class="col-12 col-md-9">
+                            <p class="form-control-static">
+                                <input type="number" class="form-control" name="sv" id="worn_sl">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-4"></div>
+                        <button type="button" class="btn btn-primary" id="sub_setW">
+                            <i class="fa fa-dot-circle-o"></i> 修改
+                        </button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">胜率</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+{js href="/static/js/admin/record/wornSet.js" /}

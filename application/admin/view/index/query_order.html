@@ -1,0 +1,61 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>订单号</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+           <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="name">请输入游戏ID/订单号：</label>
+                    <select class="form-control" name="cardType" id="grade">
+                        <option value="1">GameID</option>
+                        <option value="2">订单号</option>
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <input type="text" class="form-control"  placeholder="请查询信息" name="info" id="info" style="width: 260px;">
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">提交</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+{js href="/static/js/admin/index/queryOrder.js" /}

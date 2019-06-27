@@ -1,0 +1,71 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>输赢排行</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="card">
+        <div class="row m-0">
+            <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="inputfile">游戏日期：</label>
+                    <div class='input-group date'>
+                        <input type='date' class="form-control" name="startTime" id="t1" />
+                        <input type='date' class="form-control" name="endTime" id="t2" />
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="gid">GameID：</label>
+                    <input type="number" class="form-control" name="gid" min="1" id="gids">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="iswin">输赢：</label>
+                    <select class="form-control" name="iswin">
+                        <option value="0">全部</option>
+                        <option value="1">赢</option>
+                        <option value="2">输</option>
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+                &nbsp;&nbsp;
+                <input class="btn btn-info" type="button" value="今天">
+                &nbsp;&nbsp;
+                <input class="btn btn-info" type="button" value="昨天">
+                &nbsp;&nbsp;
+                <input class="btn btn-info" type="button" value="本周">
+            </form>
+        </div>
+    </div>
+
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
+
+
+
+{js href="/static/js/admin/index/winlosingRanking.js" /}

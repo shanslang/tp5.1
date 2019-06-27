@@ -1,0 +1,73 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>封号用户</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+            <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="isvip">状态：</label>
+                    <select class="form-control" name="isvip">
+                        <option value="1">全部</option>
+                        <option value="2">封号中</option>
+                        <option value="3">锁定中</option>  
+                        <option value="4">屏蔽中</option>  
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="gid">GameID：</label>
+                    <input type="number" class="form-control" name="gid">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="inputfile">起止日期：</label>
+                    <div class='input-group date'>
+                        <input type='date' class="form-control" name="startTime" id="t1" />
+                        <input type='date' class="form-control" name="endTime" id="t2" />
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <div id="toolbar" style="float: left;">
+                            <button type="button" class="btn btn-info" id="kickPeople" disabled="disabled"><i class="fa fa-edit"></i> 修改昵称</button>
+                        </div>
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+{js href="/static/js/admin/user/fhaoRecord.js" /}

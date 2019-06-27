@@ -1,0 +1,89 @@
+<!-- {css href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" /} -->
+<div class="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>用户信息</h4>
+                </div>
+                <div class="card-body">
+                    <div class="default-tab">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link" id="nav-home-tab" href="/index.php/admin/index/userInfoUid?uid={$uid}" role="tab" aria-controls="nav-home" aria-selected="false">&nbsp;基本信息&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" href="/index.php/admin/index/depotRecord?uid={$uid}" role="tab" aria-controls="nav-profile" aria-selected="false">&nbsp;仓库总记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" href="/index.php/admin/index/gameRecord?uid={$uid}" role="tab" aria-controls="nav-contact" aria-selected="false">&nbsp;游戏记录&nbsp;</a>
+                                <a class="nav-item nav-link active" id="nav-inout-tab" data-toggle="tab" href="#nav-inout" role="tab" aria-controls="nav-inout" aria-selected="true">&nbsp;进出记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-dez-tab" href="/index.php/admin/index/dezRecord?uid={$uid}" role="tab" aria-controls="nav-dez" aria-selected="false">&nbsp;德州游戏记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-inousta-tab" href="/index.php/admin/index/inoutStatistic?uid={$uid}" role="tab" aria-controls="nav-inousta" aria-selected="false">&nbsp;进出统计&nbsp;</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                            <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            </div>
+
+                            <div class="tab-pane fade show active" id="nav-inout" role="tabpanel" aria-labelledby="nav-inout-tab">
+                                <div class="content">
+                                    <div class="animated fadeIn">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <strong class="card-title">仓库记录</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <form class="form-inline"  role="form" id="queryForm">
+                                                            <div class="form-group">
+                                                                <label for="name">类型：</label>
+                                                                <select class="form-control" name="KindID" id="KindID">
+                                                                    <option value="0">全部</option>
+                                                                </select>
+                                                            </div>
+                                                            &nbsp;&nbsp;
+                                                            <div class="form-group">
+                                                                <label for="date">起止时间：</label>
+                                                                <input type="date" class="form-control"  name="startTime"> -
+                                                                <input type="date" class="form-control"  name="endTime">
+                                                            </div>
+                                                            &nbsp;&nbsp;
+                                                            <button type="button" class="btn btn-primary" id="sub">查询</button>
+                                                            &nbsp;&nbsp;
+                                                            进出总：<span id="z_score"></span>
+                                                        </form>
+
+                                                        <table id="tabless"></table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .animated -->
+                                </div><!-- .content -->
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-dez" role="tabpanel" aria-labelledby="nav-dez-tab">
+                                <p>hhhhhhhhhhhhhhhh</p>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-inousta" role="tabpanel" aria-labelledby="nav-inousta-tab">
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{js href="/static/js/admin/index/inoutRecord.js" /}

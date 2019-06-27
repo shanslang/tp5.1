@@ -1,0 +1,73 @@
+  <div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>话费记录</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+           <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="type">
+                    	<select name="type" class="form-control">
+                    		<option value="1">游戏ID</option>
+                    		<option value="2">账号</option>
+                            <option value="3">手机号</option>
+                            <option value="4">渠道号</option>
+                    	</select>
+                    </label>
+                    <input type="text" name="txts" class="form-control">
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="date">日期:&nbsp;</label>
+                    <input type="date" name="t1" class="form-control">&nbsp;-&nbsp;
+                    <input type="date" name="t2" class="form-control">
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+             	&nbsp;&nbsp;
+                <button type="button" class="btn btn-success btn-sm" id="btn_isf"><i class="fa fa-magic"></i>&nbsp; 已发放</button>
+             	&nbsp;&nbsp;
+             	<button type="button" class="btn btn-warning btn-sm" id="btn_isf2">&nbsp; 未发放</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                        &nbsp;&nbsp;
+              			总数量:&nbsp;<span name="znum"></span>
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+{js href="/static/js/admin/record/fareRecord.js" /}

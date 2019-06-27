@@ -1,0 +1,59 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>金币排行</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="card">
+        <div class="row m-0">
+            <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                
+                <div class="form-group">
+                    <label for="types">查询条件：</label>
+                    <select name="types" class="form-control" id="types">
+                        <option value="3">总金币</option>
+                        <option value="1">身上</option>
+                        <option value="2">银行</option>      
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="gid">前：</label>
+                    <input type="number" class="form-control" name="gid" min="1" max="1000" value="100" id="gids">&nbsp;
+                    名
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">查询</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
+
+
+
+{js href="/static/js/admin/index/goldRanking.js" /}

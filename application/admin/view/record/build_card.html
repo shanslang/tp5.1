@@ -1,0 +1,156 @@
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>实卡管理</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-home-tab" href="{:url('Record/realCard')}" role="tab" aria-controls="pills-home" aria-selected="false">会员卡管理</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">会员卡生成</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">库存统计</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-type-tab" data-toggle="pill" href="#pills-type" role="tab" aria-controls="pills-type" aria-selected="false">类型管理</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            </div>
+                            <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <form action="{:url('Record/buildCard2')}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label"><b>基本信息</b></label></div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_cardType" class=" form-control-label">会员卡类型</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="p_cardType" id="p_cardType" class="form-control">
+                                                {foreach $data as $key=>$vo }
+                                                <option value="{$vo.CardTypeID}">{$vo.CardName}</option>
+                                                {/foreach}
+                                            </select>
+                                            <small class="form-text text-muted">同一分钟内不能生成同一类型的卡多次，以免会造成卡号重复现象！</small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="cardCount" class=" form-control-label">生成数量</label></div>
+                                        <div class="col-12 col-md-9"><input type="number" required="required" name="cardCount" class="form-control" min="1"><small class="help-block form-text">每次最多10000张</small></div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">价格</label></div>
+                                        <div class="col-12 col-md-9"><p class="form-control-static" id="c_price">{$data[0]['CardPrice']}</p></div>
+                                        <input type="hidden" name="p_priceCard" value="{$data[0]['CardPrice']}" id="hi_price">
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_diamondCt" class=" form-control-label">钻石数量</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="number" id="p_diamondCt" name="p_diamondCt" class="form-control" min="1" value="{$data[0]['Currency']}">
+                                            <small class="form-text text-muted">游戏豆至少为1</small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_goldCt" class=" form-control-label">金币数量</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="number" id="p_goldCt" name="p_goldCt" class="form-control" min="0" required>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="useRange" class=" form-control-label">使用范围</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <select name="useRange" id="useRange" class="form-control">
+                                                <option value="1">新注册用户</option>
+                                                <option value="0">全部用户</option>
+                                                <option value="2">第一次充值用户</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_Sales" class=" form-control-label">销售商</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="p_Sales" name="p_Sales" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_expireDate" class=" form-control-label">有效日期</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="date" id="p_expireDate" name="p_expireDate" class="form-control" value="{$expireDate}" required>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label"><b>卡号规则</b></label></div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_beginChar" class=" form-control-label">开始字符</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="p_beginChar" name="p_beginChar" class="form-control" value="P">
+                                            <small class="form-text text-muted">开始字符可为空，最大只可为一位</small>
+                                        </div>
+                                    </div>
+<!--                                    <div class="row form-group">-->
+<!--                                        <div class="col col-md-3"><label for="p_cardLen" class=" form-control-label">卡号长度</label></div>-->
+<!--                                        <div class="col-12 col-md-9">-->
+<!--                                            <input type="number" id="p_cardLen" name="p_cardLen" class="form-control" min="15" max="31" value="15">-->
+<!--                                            <small class="form-text text-muted">卡号长度必须大于等于15小于31</small>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label class=" form-control-label"><b>卡密规则</b></label></div>
+                                    </div>
+                                    <hr/>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_cardPsw" class=" form-control-label">密码字符类型</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="checkbox" name="pswType[]" value="1" checked> 数字
+                                            <input type="checkbox" name="pswType[]" value="2"> 小写字母
+                                            <input type="checkbox" name="pswType[]" value="3"> 大写字母
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"><label for="p_pswLen" class=" form-control-label">密码长度</label></div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="number" id="p_pswLen" name="p_pswLen" class="form-control" min="8" max="32" value="8">
+                                            <small class="form-text text-muted">密码长度必须大于等于8小于等于32</small>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3"></div>
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> 生成
+                                        </button>&nbsp;&nbsp;
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> 重置
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                <h3>库存统计</h3>
+                                <p>
+                                    候补. Iste nobis, fugit pariatur minima! Dolorum modi pariatur aperiam quas odio nulla, illo necessitatibus dolor a.
+                                </p>
+                            </div>
+                            <div class="tab-pane fade" id="pills-type" role="tabpanel" aria-labelledby="pills-type-tab">
+                                <h3>类型管理</h3>
+                                <p>
+                                    类型管理Lo
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+{js href="/static/js/admin/record/buildCard.js" /}

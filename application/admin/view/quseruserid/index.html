@@ -1,0 +1,34 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>UserID查询</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="card">
+        <div class="row m-0">
+            <form class="form-inline"  role="form" style="padding: 8px;" method="post" id="queryForm">
+                
+                <div class="form-group">
+                    <label for="types">GameID：</label>
+                    <input type="number" class="form-control" name="gid" min="1000" required="required" value="{$gidd|default=''}">&nbsp;
+                </div>
+                
+                &nbsp;&nbsp;
+                <button type="sublimt" class="btn btn-primary" id="sub">查询</button>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="UserID">UserID=</label>
+                    <span>{$gid|default='输入GameID查询'}</span>
+                </div>
+            </form>
+        </div>
+    </div>

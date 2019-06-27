@@ -1,0 +1,86 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>充值记录</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+           
+           <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+                <div class="form-group">
+                    <label for="name">充值类型：</label>
+                    <select class="form-control" name="cardType">
+                        <option value="10">全部</option>
+                        <option value="0">实卡</option>
+                        <option value="1">钻石</option>
+                        <option value="2">金币</option>
+                        <option value="3">普通礼包</option>
+                        <option value="4">首冲礼包</option>
+                        <option value="5">周卡</option>
+                        <option value="6">月卡</option>
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="name">充值方：</label>
+                    <select class="form-control" name="rechargeParty">
+                        <option value="0">全部</option>
+                        <option value="42">七分支付宝充值</option>
+                        <option value="43">春启向阳支付宝充值</option>
+                        <option value="9">春启向阳快捷充值</option>
+                    </select>
+                </div>
+                &nbsp;&nbsp;
+                <div class="form-group">
+                    <label for="inputfile">充值日期：</label>
+                    <div class='input-group date'>
+                        <input type='datetime-local' class="form-control" name="startTime" />
+                        <input type='datetime-local' class="form-control" name="endTime" />
+                    </div>
+
+                </div>
+                &nbsp;&nbsp;
+                <div class="checkbox">
+                    <label>总充值：<span id="z_recharge"></span></label>
+                </div>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" id="sub">提交</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <table id="tabless">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+{js href="/static/js/admin/index/rechargeRecord.js" /}

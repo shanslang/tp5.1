@@ -1,0 +1,541 @@
+<div class="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>用户信息</h4>
+                </div>
+                <div class="card-body">
+                    <div class="default-tab">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">&nbsp;基本信息&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab"  href="/index.php/admin/index/depotRecord?uid={$row['UserID']}" role="tab" aria-controls="nav-profile" aria-selected="false">&nbsp;仓库总记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab"  href="/index.php/admin/index/gameRecord?uid={$row['UserID']}" role="tab" aria-controls="nav-contact" aria-selected="false">&nbsp;游戏记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-inout-tab" href="/index.php/admin/index/inoutRecord?uid={$row['UserID']}" role="tab" aria-controls="nav-inout" aria-selected="false">&nbsp;进出记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-dez-tab" href="/index.php/admin/index/dezRecord?uid={$row['UserID']}" role="tab" aria-controls="nav-dez" aria-selected="false">&nbsp;德州游戏记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-inousta-tab" href="/index.php/admin/index/inoutStatistic?uid={$row['UserID']}" role="tab" aria-controls="nav-inousta" aria-selected="false">&nbsp;进出统计&nbsp;</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <input type="hidden" name="UserIDs" value="{$row['UserID']}" id="getuid">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td>ID号码（GameID）： {$row['GameID']}</th>
+                                            <td><button type="button" class="btn btn-warning" id="editPsw">修改密码</button></th>
+                                            <td><button type="button" class="btn btn-warning" id="editUinfo">修改信息</button></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>账号：</td>
+                                            <td>{$row['Accounts']}</td>
+                                            <td>
+                                               
+                                                <div class="col-lg-8">
+                                                    
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">运维VIP(0 ~ 127)</span>
+                                                        <input type="number" class="form-control" min="0" max="127" value="{$row['VipServer']}" id="vipGrade">
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-info" id="editVip">修改</button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td>用户ID(UserID)：</td>
+                                            <td>{$row['UserID']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>UnionId：</td>
+                                            <td>{$row['UnionId']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>昵称:</td>
+                                            <td>{$row['NickName']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>渠道号:</td>
+                                            <td>{$row['SpreaderID']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>会员等级：</td>
+                                            <td>
+                                                <span style="color: red;">
+                                                    {switch $row.MemberOrder}
+                                                        {case 0}普通{/case}
+                                                        {case 1}一级{/case}
+                                                        {case 2}二级{/case}
+                                                        {case 3}三级{/case}
+                                                        {case 4}四级{/case}
+                                                        {case 5}五级{/case}
+                                                        {default /}十级
+                                                    {/switch}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                {gt name="$row['MemberOrder']" value="0"}
+                                                    <button type="button" class="btn btn-warning" id="delvip">删除会员</button>
+                                                {/gt}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>税:</td>
+                                            <td>{$row['UserUin']|number_format}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>钻石:</td>
+                                            <td>{$row['Currency']|number_format}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>游戏金币:</td>
+                                            <td>{$row['Score']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>银行金额:</td>
+                                            <td>{$row['InsureScore']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>总金额:</td>
+                                            <td>{$row['z_jb']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>游戏所得（总）:</td>
+                                            <td>
+                                                {$row['game_z']}
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>进出房间（总）:</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary mb-1" id="inoutBt" data-target="#smallmodal">点击查看 新玩家准确度高，游戏内存取会导致不准</button>
+                                            </td>
+                                            <td></td>
+                                        </tr><tr>
+                                            <td>转出次数:</td>
+                                            <td>{$row['zcCount']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>转出总额:</td>
+                                            <td>{$row['zcSum']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>转出到普通玩家:</td>
+                                            <td>{$row['ZcPtSum']|number_format}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>转入次数:</td>
+                                            <td>{$row['zrCount']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>转入总额:</td>
+                                            <td>{$row['zrSum']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>vip转入:</td>
+                                            <td>{$row['ZrVipSum']|number_format}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>领取税收（总）:</td>
+                                            <td>{$row['revenue']|number_format}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>充值所得（总）：</td>
+                                            <td>金币:{$row['jb']|number_format}</td>
+                                            <td>钻石:{$row['z_gold']|number_format}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>其它金币来源:</td>
+                                            <td><a href="/index.php/admin/index/otherGold?uid={$row['UserID']}" target="_blank"><i class="fa fa-link"></i>&nbsp; {$row['others']}</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>充值总额:</td>
+                                            <td><i class="fa fa-money"></i>&nbsp;{$row['RechargeSum']|number_format}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>固定机器状态:</td>
+                                            <td>
+                                                
+                                                {eq name="$row['MoorMachine']" value="1"}
+                                                    <span style="color: red;">已锁定</span>
+                                                {else/}
+                                                    正常
+                                                {/eq}
+                                            </td>
+                                            <td>
+                                                {eq name="$row['MoorMachine']" value="1"}
+                                                    <button type="button" class="btn btn-success" id="unlock">解锁</button>
+                                                {else/}
+                                                    <button type="button" class="btn btn-warning" id="locking">锁定</button>
+                                                {/eq}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>当前封号状态:</td>
+                                            <td>
+                                                {eq name="$row['Nullity']" value="1"}
+                                                    <span style="color: red;">封号中</span>
+                                                {else/}
+                                                    <lable>正常</lable>
+                                                {/eq}
+                                            </td>
+                                            <td>
+                                                <div class="col-lg-8">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">原因</span>
+                                                        <input type="text" class="form-control" id="fhreason">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-info" type="button">
+                                                                {eq name="$row['Nullity']" value="1"}
+                                                                    <span style="color: red;" id="jief">解封</span>
+                                                                {else/}
+                                                                    <lable id="fhao">封号</lable>
+                                                                {/eq}
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>当前屏蔽登录状态:</td>
+                                            <td>
+                                                {eq name="$row['CustomFaceVer']" value="1"}
+                                                    <span style="color: red;">屏蔽中</span>
+                                                {else/}
+                                                    <lable>正常</lable>
+                                                {/eq}
+                                            </td>
+                                            <td>
+                                                <div class="col-lg-8">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">原因</span>
+                                                        <input type="text" class="form-control" id="shieldReason">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn btn-info" type="button">
+                                                                {eq name="$row['CustomFaceVer']" value="1"}
+                                                                    <span style="color: red;" id="jieShield">解除</span>
+                                                                {else/}
+                                                                    <lable id="shield">屏蔽</lable>
+                                                                {/eq}
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><button type="button" class="btn btn-warning" id="Untying">解除信息绑定</button></td>
+                                            <td><button type="button" class="btn btn-info" id="binding">完善资料</button></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>身份证号:</td>
+                                            <td><a href="#" id="cards">{$row['PassPortID']}</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>姓名:</td>
+                                            <td>{$row['Compellation']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>绑定手机:</td>
+                                            <td><a href="#" id="showMobile"><i class="fa fa-link"></i>&nbsp; <span id="mobilep">{$row['RegisterMobile']}</span></a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>最后登陆设备:</td>
+                                            <td>{$row['LastLogonModel']}</td>
+                                            <td><a href="/index.php/admin/index/deviceInfo?uid={$row['UserID']}" target="_blank"><i class="fa fa-link"></i>&nbsp; 设备详情</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>登陆次数:</td>
+                                            <td>（大厅）{$row['GameLogonTimes']}</td>
+                                            <td>（网站）{$row['WebLogonTimes']}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>最后登陆时间:</td>
+                                            <td>{$row['LastLogonDate']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>注册时间:</td>
+                                            <td>{$row['RegisterDate']}</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>注册IP:</td>
+                                            <td>{$row['RegisterIP']}&nbsp;&nbsp;{$row['registArea']}</td>
+                                            <td>(a: {$row['IPregisterCt']} &nbsp; b: {$row['ipRegister']|number_format})</td>
+                                        </tr>
+                                        <tr>
+                                            <td>注册机器码:</td>
+                                            <td>{$row['RegisterMachine']}</td>
+                                            <td>(a: {$row['MachineregisterCt']} &nbsp; b: {$row['machineRegister']|number_format})</td>
+                                        </tr>
+                                        <tr>
+                                            <td>最后登陆IP:</td>
+                                            <td>{$row['LastLogonIP']}&nbsp;&nbsp;{$row['LastLogonArea']}</td>
+                                            <td>(a: {$row['IPLastLoginCt']} &nbsp; b: {$row['ipLogin']|number_format})</td>
+                                        </tr>
+                                        <tr>
+                                            <td>后登录机器码:</td>
+                                            <td>{$row['LastLogonMachine']}</td>
+                                            <td>(a: {$row['LastLoginMachineCt']} &nbsp; b: {$row['machineLogin']|number_format})</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="text-center">注：a表示相关账号数，b表示相关账号总金额</p>
+                                <p class="text-center"><a href="/index.php/admin/user/queryRelevance?uids={$row['UserID']}" target="_blank">查看相关账户关联号</a></p>
+
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                                            </div>
+                                            <form class="form-horizontal" role="form" id="editPswForm">
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="UserIDs2" value="{$row['UserID']}" id="getuid2">
+                                                    <div class="form-group">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="types" value="1" checked>&nbsp; 只修改登陆
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="types"  value="2">&nbsp; 只修改银行
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="types"  value="3">&nbsp; 都修改
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">登录密码:</div>
+                                                            <input type="text" id="logpsw" name="logpsw" placeholder="登录密码" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">确认密码:</div>
+                                                            <input type="text" id="conlog" name="conlog" placeholder="确认登录密码" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">银行密码:</div>
+                                                            <input type="text" id="bankpsw" name="bankpsw" placeholder="bankpsw" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">确认密码:</div>
+                                                            <input type="text" id="conbank" name="conbank" placeholder="确认银行密码" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="userModalLabel">修改用户信息</h4>
+                                            </div>
+                                            <form class="form-horizontal" role="form" id="editUserinfo">
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="UserID2" id="UserID2" value="{$row['UserID']}">
+                                                    
+                                                    <label>请填写要修改的其中一项</label>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">GameID:</div>
+                                                            <input type="number" id="gid" name="gid" placeholder="" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">帐号:</div>
+                                                            <input type="text" id="account" name="account" placeholder="" class="form-control">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">昵称:</div>
+                                                            <input type="text" id="nickname" name="nickname" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                                <button type="button" id="btn_submit2" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="smallmodalLabel">进出总分</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p id="inoutp"></p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="mediumModalLabel">相同身份证号</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table id="tableCard"></table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="mediumModal2" tabindex="-1" role="dialog" aria-labelledby="mediumModal2Label" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="mediumModal2Label">相同手机号</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <table id="tableMobile"></table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="perfectModal" tabindex="-1" role="dialog" aria-labelledby="perfectModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="perfectModalLabel">完善资料</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="#" method="post" novalidate="novalidate" id="perfectForm">
+                                                    <input type="hidden" value="{$row['UserID']}" name="uid">
+                                                    <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">真实姓名</label>
+                                                        <input id="cc-payment" name="names" type="text" class="form-control" aria-required="true" aria-invalid="false" value="">
+                                                    </div>
+                                                    <div class="form-group has-success">
+                                                        <label for="cc-name" class="control-label mb-1">身份证号</label>
+                                                        <input id="cc-name" name="idCard" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name">
+                                                        <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="cc-number" class="control-label mb-1">手机号</label>
+                                                        <input id="cc-number" name="mobiles" type="number" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number">
+                                                        <span class="help-block" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                                <button type="button" id="btn_perfect" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {js href="/static/js/admin/index/userInfo.js" /}
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <p></p>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-inout" role="tabpanel" aria-labelledby="nav-inout-tab">
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-dez" role="tabpanel" aria-labelledby="nav-dez-tab">
+                                <p>hhhhhhhhhhhhhhhh</p>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-inousta" role="tabpanel" aria-labelledby="nav-inousta-tab">
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

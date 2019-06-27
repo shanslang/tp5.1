@@ -1,0 +1,81 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>输赢查询</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+	<div class="card">
+		<div class="row m-0">
+	        <form class="form-inline"  role="form" style="padding: 8px;" method="get" id="queryForm">
+	        	
+	            <div class="form-group">
+	                <label for="types">查询条件：</label>
+	                <select name="types" class="form-control">
+	                	<option value="2">游戏ID</option>
+	                	<option value="1">最后登录机器码</option>
+	                	<option value="3">注册IP</option>
+	                	<option value="4">最后登录IP</option>
+	                	<option value="5">注册机器码</option>
+	                	<option value="6">身份证号</option>
+	                	<option value="7">账号</option>
+	                </select>
+	            </div>
+	            &nbsp;&nbsp;
+	            <div class="form-group">
+	                <input type="text" class="form-control" name="gid">
+	            </div>
+	            &nbsp;&nbsp;
+	            <div class="form-group">
+	                <label for="gamesid">游戏：</label>
+	                <select name="gamesid" class="form-control" id="KindID">
+	                	<option value="0">全部</option>
+	                </select>
+	            </div>
+	            &nbsp;&nbsp;
+	            <div class="form-group">
+	                <label for="inputfile">起止日期：</label>
+	                <div class='input-group date'>
+	                    <input type='date' class="form-control" name="startTime" id="t1" />
+	                    <input type='date' class="form-control" name="endTime" id="t2" />
+	                </div>
+	            </div>
+	            &nbsp;&nbsp;
+	            <button type="button" class="btn btn-primary" id="sub">查询</button>
+	            &nbsp;&nbsp;
+	            (注：最多只能查询到最近一个月的记录)
+	        </form>
+    	</div>
+	</div>
+
+	<div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                    	<div id="toolbar" style="float: left;">
+                            总：<span id="z_score"></span>
+                        </div>
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div>
+
+
+
+{js href="/static/js/admin/index/bunkoQuery.js" /}

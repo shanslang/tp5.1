@@ -1,0 +1,71 @@
+<!-- {css href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" /} -->
+<div class="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>用户信息</h4>
+                </div>
+                <div class="card-body">
+                    <div class="default-tab">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link" id="nav-home-tab" href="/index.php/admin/index/userInfoUid?uid={$uid}" role="tab" aria-controls="nav-home" aria-selected="false">&nbsp;基本信息&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" href="/index.php/admin/index/depotRecord?uid={$uid}" role="tab" aria-controls="nav-profile" aria-selected="false">&nbsp;仓库总记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" href="/index.php/admin/index/gameRecord?uid={$uid}" role="tab" aria-controls="nav-contact" aria-selected="false">&nbsp;游戏记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-inout-tab" href="/index.php/admin/index/inoutRecord?uid={$uid}" role="tab" aria-controls="nav-inout" aria-selected="false">&nbsp;进出记录&nbsp;</a>
+                                <a class="nav-item nav-link" id="nav-dez-tab" href="/index.php/admin/index/dezRecord?uid={$uid}" role="tab" aria-controls="nav-dez" aria-selected="false">&nbsp;德州游戏记录&nbsp;</a>
+                                <a class="nav-item nav-link active" id="nav-inousta-tab" data-toggle="tab" href="#nav-inousta" role="tab" aria-controls="nav-inousta" aria-selected="true">&nbsp;进出统计&nbsp;</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                            <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, irure terry richardson ex sd. Alip placeat salvia cillum iphone. Seitan alip s cardigan american apparel, butcher voluptate nisi .</p>
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-inout" role="tabpanel" aria-labelledby="nav-inout-tab">
+                                
+                            </div>
+
+                            <div class="tab-pane fade" id="nav-dez" role="tabpanel" aria-labelledby="nav-dez-tab">
+                                
+                            </div>
+
+                            <div class="tab-pane fade show active" id="nav-inousta" role="tabpanel" aria-labelledby="nav-inousta-tab">
+                                <div class="content">
+                                    <div class="animated fadeIn">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <strong class="card-title">进出统计</strong>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div>进出总次数：<span id="z_ct"></span></div>
+                                                        <table id="tabless"></table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .animated -->
+                                </div><!-- .content -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{js href="/static/js/admin/index/inoutStatistic.js" /}

@@ -1,0 +1,118 @@
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>在线玩家</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <!-- <li><a href="#">Dashboard</a></li> -->
+                            <li><a href="#">Table</a></li>
+                            <li class="active">Data table</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <table class="table">
+                <!-- <caption>上下文表格布局</caption> -->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>携带总金币：<span id="z_score"></span></th>
+                        <th>身上总金币：<span id="gameGold"></span></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="active">
+                        <td>付费用户：<span id="ffCt"></span></td>
+                        <td>免费用户：<span id="mfCt"></span></td>
+                        <td>手机号兑换数:<span id="mobileCt"></span></td>
+                        <td>总在线：<span id="ct"></span></td>
+                    </tr>
+                    <tr class="success" style="background: #8FBC8F;">
+                        <td><b>付费</b></td>
+                        <td>iOS：<span id="ffIphone"></span></td>
+                        <td>安卓：<span id="ffAnd"></span></td>
+                        <td>PC：<span id="ffPc"></span></td>
+                    </tr>
+                    <tr  class="warning" style="background: #F0FFF0;">
+                        <td><b>免费</b></td>
+                        <td>iOS：<span id="mfIphone"></span></td>
+                        <td>安卓：<span id="mfAnd"></span></td>
+                        <td>PC：<span id="mfPc"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">查询结果</strong>
+                    </div>
+                    <div class="card-body">
+                        <div id="toolbar" style="float: left;">
+                            <button type="button" class="btn btn-success" id="setCheat">
+                                <i class="fa fa-bug"></i> 设置虫子
+                            </button>
+                            <button type="button" class="btn btn-info" id="kickPeople">踢人</button>
+                        </div>
+
+                        <table id="tabless"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">设置虫子</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="txt_departmentname">等级</label>
+                    <select class="form-control" id="grade">
+                        <option value="1">一级</option>
+                        <option value="2">二级</option>
+                        <option value="3">三级</option>
+                        <option value="0">非虫子</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{js href="/static/js/admin/index/getOnlineUser.js" /}
